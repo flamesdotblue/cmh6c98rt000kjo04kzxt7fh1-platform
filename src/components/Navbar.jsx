@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Menu, X, Rocket } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const links = [
   { href: "#home", label: "Home" },
@@ -22,37 +22,40 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all ${
-      scrolled ? "backdrop-blur bg-[#0A0A0B]/70 border-b border-[#3B3F45]/40" : "bg-transparent"
-    }`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all ${
+        scrolled
+          ? "backdrop-blur bg-white/80 shadow-sm"
+          : "bg-white/70"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-2 group">
-          <div className="relative">
-            <Rocket className="h-6 w-6 text-[#C8FF3D]" />
-            <span className="absolute inset-0 blur-md opacity-30 bg-[#C8FF3D] rounded-full" />
+          <div className="h-8 w-8 rounded-md bg-gradient-to-br from-blue-600 to-blue-400 grid place-items-center text-white font-bold text-sm">
+            AT
           </div>
-          <span className="font-semibold tracking-wide text-white">Art Thou</span>
+          <span className="font-semibold tracking-wide text-slate-900">Art Thou</span>
         </a>
         <nav className="hidden md:flex items-center gap-6">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-[#F5F7FA]/80 hover:text-white transition-colors relative"
+              className="text-sm text-slate-600 hover:text-slate-900 transition-colors relative"
             >
               {l.label}
-              <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-px w-0 group-hover:w-full bg-gradient-to-r from-transparent via-[#38E8FF] to-transparent transition-all" />
+              <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-0.5 w-0 group-hover:w-full bg-blue-600 transition-all" />
             </a>
           ))}
           <a
             href="#contact"
-            className="relative inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full border border-transparent bg-[#FF3FD1] text-black shadow-[0_0_20px_#FF3FD1AA] hover:shadow-[0_0_28px_#FF3FD1CC] transition-all"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-full bg-blue-600 text-white shadow-sm hover:bg-blue-700 transition-colors"
           >
             Schedule a Strategy Call
           </a>
         </nav>
         <button
-          className="md:hidden p-2 rounded-lg border border-[#3B3F45] text-[#F5F7FA]"
+          className="md:hidden p-2 rounded-lg border border-slate-200 text-slate-800"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -60,14 +63,14 @@ export default function Navbar() {
         </button>
       </div>
       {open && (
-        <div className="md:hidden border-t border-[#3B3F45]/40 bg-[#0A0A0B]">
+        <div className="md:hidden border-t border-slate-200 bg-white">
           <div className="px-4 py-4 flex flex-col gap-3">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="py-2 text-[#F5F7FA]"
+                className="py-2 text-slate-800"
               >
                 {l.label}
               </a>
@@ -75,7 +78,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-full border border-transparent bg-[#FF3FD1] text-black"
+              className="mt-2 inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-full bg-blue-600 text-white"
             >
               Schedule a Strategy Call
             </a>

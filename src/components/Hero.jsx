@@ -11,7 +11,7 @@ export default function Hero() {
         aria-hidden
         style={{
           background:
-            "radial-gradient(circle at 30% 20%, #38E8FF33 0%, transparent 45%), radial-gradient(circle at 70% 80%, #C8FF3D33 0%, transparent 45%)",
+            "radial-gradient(60% 60% at 10% 10%, rgba(37,99,235,0.08) 0%, transparent 60%), radial-gradient(60% 60% at 90% 20%, rgba(14,165,233,0.08) 0%, transparent 60%)",
         }}
       />
 
@@ -19,50 +19,47 @@ export default function Hero() {
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7">
             <motion.h1
-              initial={prefersReduced ? false : { y: 24, opacity: 0 }}
+              initial={prefersReduced ? false : { y: 20, opacity: 0 }}
               animate={prefersReduced ? {} : { y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}
-              className="text-5xl sm:text-6xl font-extrabold tracking-tight"
+              transition={{ duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }}
+              className="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-900"
             >
-              <span className="relative">
-                <span className="relative z-10">Shape perception.</span>
-                <span className="absolute -inset-1 rounded -z-0 bg-gradient-to-r from-[#FF3FD1] to-[#7A57FF] opacity-20" />
-              </span>
+              Shape perception.
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38E8FF] to-[#C8FF3D]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-sky-500">
                 Spark momentum.
               </span>
             </motion.h1>
             <motion.p
               initial={prefersReduced ? false : { opacity: 0 }}
               animate={prefersReduced ? {} : { opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="mt-5 text-lg text-[#F5F7FA]/80 max-w-2xl"
+              transition={{ delay: 0.15, duration: 0.6 }}
+              className="mt-5 text-lg text-slate-700 max-w-2xl"
             >
               Art Thou is a Delhi NCR public relations and media partner for founders, CMOs, and growth leaders. We craft strategic narratives, build brand influence, and drive measurable coverage across India.
             </motion.p>
             <div className="mt-8 flex items-center gap-4">
               <a
                 href="#contact"
-                className="relative inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-black bg-[#FF3FD1] shadow-[0_0_28px_#FF3FD1AA] hover:shadow-[0_0_34px_#FF3FD1] transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white bg-blue-600 shadow hover:bg-blue-700 transition-colors"
               >
                 Schedule a Strategy Call
               </a>
               <a
                 href="#services"
-                className="px-6 py-3 rounded-full text-sm font-semibold border border-[#3B3F45] text-[#F5F7FA] hover:border-[#38E8FF] hover:text-white transition-colors"
+                className="px-6 py-3 rounded-full text-sm font-semibold border border-slate-300 text-slate-800 hover:border-blue-500 hover:text-blue-700 transition-colors"
               >
                 Explore Services
               </a>
             </div>
 
             <div className="mt-12">
-              <p className="text-xs uppercase tracking-widest text-[#F5F7FA]/60">Trusted by teams across India</p>
+              <p className="text-xs uppercase tracking-widest text-slate-500">Trusted by teams across India</p>
               <div className="mt-4 grid grid-cols-3 sm:grid-cols-6 gap-6">
                 {["Zomato", "Paytm", "Delhivery", "Nykaa", "CRED", "Freshworks"].map((logo) => (
                   <div
                     key={logo}
-                    className="h-10 flex items-center justify-center rounded bg-[#0A0A0B] border border-[#3B3F45]/40 text-[#F5F7FA]/60 hover:text-[#F5F7FA] hover:scale-105 transition-all"
+                    className="h-10 flex items-center justify-center rounded border border-slate-200 text-slate-500 hover:text-slate-800 hover:shadow-sm transition-all bg-white"
                   >
                     <span className="text-sm">{logo}</span>
                   </div>
@@ -72,28 +69,25 @@ export default function Hero() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-[#3B3F45]/40">
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #FF3FD1 0%, #7A57FF 100%)",
-                  opacity: 0.15,
-                }}
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm">
+              <img
+                alt="PR strategy in action"
+                className="absolute inset-0 h-full w-full object-cover"
+                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1470&auto=format&fit=crop"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-slate-900/0" />
               <motion.div
-                initial={prefersReduced ? false : { opacity: 0, scale: 0.98 }}
-                animate={prefersReduced ? {} : { opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                className="relative h-full w-full flex items-center justify-center"
+                initial={prefersReduced ? false : { opacity: 0, y: 10 }}
+                animate={prefersReduced ? {} : { opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="relative h-full w-full flex items-end"
               >
-                <div className="p-8 text-center">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0A0A0B]/70 border border-[#3B3F45]">
-                    <span className="h-2 w-2 rounded-full bg-[#C8FF3D] animate-pulse" />
-                    <span className="text-xs text-[#F5F7FA]/80">On‑air media room</span>
+                <div className="p-6 w-full">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 border border-slate-200 shadow-sm">
+                    <span className="h-2 w-2 rounded-full bg-blue-600" />
+                    <span className="text-xs text-slate-700">On‑air media room</span>
                   </div>
-                  <h3 className="mt-6 text-xl font-semibold">Strategic storytelling. Brand innovation. Media relations.</h3>
-                  <p className="mt-2 text-[#F5F7FA]/70">Clean UI, smooth animations, intuitive flow — built for momentum.</p>
+                  <h3 className="mt-4 text-xl font-semibold text-white drop-shadow">Strategic storytelling. Brand innovation. Media relations.</h3>
                 </div>
               </motion.div>
             </div>
